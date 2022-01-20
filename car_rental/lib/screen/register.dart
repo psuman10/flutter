@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:motion_toast/motion_toast.dart';
+import '/http/httpuser.dart';
+import '/model/user.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -15,6 +18,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String email = '';
   String gender = '';
   String password = '';
+
+  Future<bool> registerUser(User u) {
+    var res = HttpConnectUser().registerPost(u);
+    return res;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,33 +60,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         top: 20.0, left: 120.0, right: 120.0, bottom: 12.0),
                     child: Divider(
                       thickness: 4,
+                      
                       color: Colors.red,
+                      
                     ),
                   ),
+
                   TextFormField(
                     style: const TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                          color: Colors.white,
+                          backgroundColor: Colors.transparent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
+                        ),
                     onSaved: (value) {
                       username = value!;
                     },
-                    decoration: InputDecoration(
+                    decoration:  InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 4.0),
-                      ),
-                      labelStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide:
-                              const BorderSide(color: Colors.grey, width: 6.0)),
-                      fillColor: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 4.0),
+                          ),
+                          labelStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                  color: Colors.grey, width: 6.0)),
+                       fillColor: Colors.white,
                       labelText: 'Username',
                       hintText: 'Enter your User name',
                       // border: OutlineInputBorder(
@@ -91,103 +103,132 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const SizedBox(height: 20),
                   TextFormField(
                     style: const TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                          color: Colors.white,
+                          backgroundColor: Colors.transparent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
+                        ),
                     onSaved: (value) {
                       email = value!;
                     },
-                    decoration: InputDecoration(
+                    decoration:  InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 4.0),
-                      ),
-                      labelStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide:
-                              const BorderSide(color: Colors.grey, width: 6.0)),
-                      fillColor: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 4.0),
+                          ),
+                          labelStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                  color: Colors.grey, width: 6.0)),
+                       fillColor: Colors.white,
                       labelText: 'Email ID',
                       hintText: 'Enter your Email ID',
                       // border: OutlineInputBorder(),
                     ),
-                    validator: MultiValidator([
+                    validator:MultiValidator([
                       RequiredValidator(errorText: 'Email is required'),
                       EmailValidator(errorText: 'Enter a valid Email ID')
-                    ]),
+                    ]
+                    ),
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
                     style: const TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                          color: Colors.white,
+                          backgroundColor: Colors.transparent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
+                        ),
                     onSaved: (value) {
                       gender = value!;
                     },
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 4.0),
-                      ),
-                      labelStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide:
-                              const BorderSide(color: Colors.grey, width: 6.0)),
-                      fillColor: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 4.0),
+                          ),
+                          labelStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                  color: Colors.grey, width: 6.0)),
+                       fillColor: Colors.white,
                       labelText: 'gender',
                       hintText: 'Enter your gender',
+                      
                     ),
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
                     style: const TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                          color: Colors.white,
+                          backgroundColor: Colors.transparent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
+                        ),
                     onSaved: (value) {
                       password = value!;
                     },
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 4.0),
-                      ),
-                      labelStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide:
-                              const BorderSide(color: Colors.grey, width: 6.0)),
-                      fillColor: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 4.0),
+                          ),
+                          labelStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                  color: Colors.grey, width: 6.0)),
+                       fillColor: Colors.white,
                       labelText: 'Password',
                       hintText: 'Enter your Password',
+                      
+                    
+                      
                     ),
+                    
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 50),
                     ),
-                    onPressed: () async {},
+                    onPressed: () async {
+                      if (regform.currentState!.validate()) {
+                        regform.currentState!.save();
+
+                        User u = User(
+                            username: username,
+                            email: email,
+                            gender: gender,
+                            password: password);
+                        bool isCreated = await registerUser(u);
+                        if (isCreated) {
+                          Navigator.pushNamed(context, '/');
+                          MotionToast.success(description: const Text('New user created'))
+                              .show(context);
+                        } else {
+                          MotionToast.error(description: const Text('Failed to create user'))
+                              .show(context);
+                        }
+                      }
+                    },
                     child: const Text('Register'),
+                    
                   ),
                   const SizedBox(height: 30),
                   InkWell(
@@ -210,7 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: TextDecoration.underline,
                           fontSize: 20,
                           color: Colors.white,
-
+                          
                           // decoration: TextDecoration.underline,
                           // decorationThickness: 2,
                         ),
