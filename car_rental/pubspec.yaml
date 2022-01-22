@@ -36,11 +36,26 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.4
   motion_toast: ^2.0.0
+  toast: ^0.1.5
+  fluttertoast: ^8.0.8
+  image_picker: ^0.8.4+5
+  json_annotation: ^4.4.0
+  shared_preferences: ^2.0.11
+  provider: ^6.0.2
+  get: ^4.3.8
+  shimmer: ^2.0.0
+  gap: ^2.0.0
+  barcode_widget: ^2.0.1
+  fluentui_icons: ^1.0.0
+  splashscreen: ^1.2.0
+  flutter_svg: ^1.0.3
   form_field_validator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  json_serializable: ^6.1.4
+  build_runner: ^2.1.7
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
