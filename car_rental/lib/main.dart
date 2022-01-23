@@ -1,7 +1,9 @@
 // import 'package:car/carpage/widgets/bottom_nav.dart';
 import 'package:car_rental/navbar/bottom_nav.dart';
+import 'package:car_rental/profile/screen.dart';
 import 'package:car_rental/screen/login.dart';
 import 'package:car_rental/screen/register.dart';
+import 'package:car_rental/screen/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,7 +40,8 @@ class MyApp extends StatelessWidget {
           routes: {
             '/': (context) => const LoginScreen(),
             '/register': (context) => const RegisterScreen(),
-            '/nav': (context) => const NavBottompract(),,
+            '/nav': (context) => const NavBottompract(),
+            '/userprofile': (context) => const UserProfile(),
           },
         );
       },
