@@ -1,3 +1,4 @@
+import 'package:car_rental/profile_screen/body.dart';
 import 'package:car_rental/screen/login.dart';
 import 'package:flutter/material.dart';
 class NavBottompract extends StatefulWidget {
@@ -11,7 +12,8 @@ class _NavBottompractState extends State<NavBottompract> {
     LoginScreen(),
     LoginScreen(),
     LoginScreen(),
-    LoginScreen()
+    Body(),
+    
   ];
   void _onItemTapped(int index) {
     setState(() {
