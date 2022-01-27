@@ -1,7 +1,9 @@
-
+import 'package:car_rental/json/car_list.dart';
+import 'package:car_rental/widgets/hotel_view.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -81,10 +83,13 @@ class Home extends StatelessWidget {
               )
           ),
           const Gap(15),
-          const SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              padding: EdgeInsets.only(left: 20),
+          SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.only(left: 20),
               scrollDirection: Axis.horizontal,
+              child: Row(
+                children: carList.map<Widget>((hotel) => HotelView(car: hotel)).toList()
+              )
               
           ),
         ],
