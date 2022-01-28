@@ -1,5 +1,5 @@
 import 'package:car_rental/json/car_list.dart';
-import 'package:car_rental/widgets/hotel_view.dart';
+import 'package:car_rental/widgets/car_view.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';

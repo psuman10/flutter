@@ -1,6 +1,7 @@
 import 'package:car_rental/profile_screen/body.dart';
 import 'package:car_rental/screen/login.dart';
 import 'package:car_rental/screen/main_screen.dart';
+import 'package:car_rental/screen/tickets.dart';
 import 'package:flutter/material.dart';
 class NavBottompract extends StatefulWidget {
   const NavBottompract({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _NavBottompractState extends State<NavBottompract> {
   static const List<Widget> _widgetOption = [
     Home(),
     LoginScreen(),
-    LoginScreen(),
+    Tickets(),
     Body(),
     
   ];
