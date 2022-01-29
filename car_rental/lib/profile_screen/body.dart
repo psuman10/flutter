@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
             text: "Profile",
             icon: "assets/icons/User Icon.svg",
             press: () => {
-              Navigator.pushNamed(context, '/add_student'),
+              Navigator.pushNamed(context, '/userprofile'),
             },
           ),
           ProfileMenu(
