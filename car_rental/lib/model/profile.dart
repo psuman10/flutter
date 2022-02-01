@@ -10,15 +10,13 @@ class Profile {
   String? email;
   String? gender;
   String? address;
-  String? photo;
 
   Profile(
       {this.id,
       this.fullname,
       this.email,
       this.gender,
-      this.address,
-      this.photo,});
+      this.address,});
 
   factory Profile.fromJson(Map<String, dynamic> obj) => _$ProfileFromJson(obj);
   Map<String, dynamic> toJson() => _$ProfileToJson(this);
