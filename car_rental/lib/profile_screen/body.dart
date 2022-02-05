@@ -42,7 +42,7 @@ class Body extends StatelessWidget {
             text: "Add Product",
             icon: "assets/icons/add.svg",
             press: () {
-              Navigator.pushNamed(context, '/addproduct');
+              Navigator.pushNamed(context, '/addcar');
             },
           ),
           ProfileMenu(

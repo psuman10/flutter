@@ -10,8 +10,6 @@ class ResponseUser {
       token: json['token'],
     );
   }
-
- 
 }
 
 

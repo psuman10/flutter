@@ -1,6 +1,8 @@
 // import 'package:car/carpage/widgets/bottom_nav.dart';
 import 'package:car_rental/navbar/bottom_nav.dart';
 import 'package:car_rental/profile/screen.dart';
+import 'package:car_rental/screen/addcar.dart';
+import 'package:car_rental/screen/car_details.dart';
 import 'package:car_rental/screen/login.dart';
 import 'package:car_rental/screen/register.dart';
 import 'package:car_rental/screen/theme.dart';
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
             '/register': (context) => const RegisterScreen(),
             '/nav': (context) => const NavBottompract(),
             '/userprofile': (context) => const UserProfile(),
+            '/car_details': (context) => const DetailsPage(),
+            '/addcar': (context) => const AddCar(),
           },
         );
       },

@@ -1,19 +1,125 @@
-import 'package:car_rental/json/car_list.dart';
-import 'package:car_rental/widgets/car_view.dart';
+import 'package:car_rental/http/httpcar.dart';
+import 'package:car_rental/model/car_model.dart';
+import 'package:car_rental/screen/main_screenpart.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:unicons/unicons.dart';
+import 'package:snippet_coder_utils/ProgressHUD.dart';
 
-
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  // late Future<List<Cars>> futureCar;
+  bool isApiCallProcess = false;
+  @override
+  void initState() {
+    super.initState();
+
+    // futureCar = HttpConnectCar().getCars();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // backgroundColor: Styles.bgColor,
-      body: ListView(
-        children: [
-          Container(
+      appBar: AppBar(
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+        shadowColor: Colors.transparent,
+        leading: Padding(
+          padding: EdgeInsets.only(
+            left: size.width * 0.05,
+          ),
+          child: SizedBox(
+            height: size.width * 0.1,
+            width: size.width * 0.1,
+            child: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              child: Icon(
+                UniconsLine.bars,
+                size: size.height * 0.025,
+              ),
+            ),
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        leadingWidth: size.width * 0.15,
+        title: Image.asset(
+          'assets/images/loogoo.jpg',
+          height: size.height * 0.06,
+          width: size.width * 0.35,
+        ),
+        centerTitle: true,
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(
+              right: size.width * 0.05,
+            ),
+            child: SizedBox(
+              height: size.width * 0.1,
+              width: size.width * 0.1,
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: Icon(
+                  UniconsLine.car,
+                  size: size.height * 0.025,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: ProgressHUD(
+        child: loadCars(),
+        inAsyncCall: isApiCallProcess,
+        opacity: 0.3,
+        key: UniqueKey(),
+      ),
+    );
+  }
+
+  Widget loadCars() {
+    return FutureBuilder(
+      future: HttpConnectCar().getCars(),
+      builder: (
+        BuildContext context,
+        AsyncSnapshot<List<Cars>?> model,
+      ) {
+        if (model.hasData) {
+          return carList(model.data);
+        }
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
+  Widget carList(cars) {
+    return SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+             Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
@@ -64,7 +170,7 @@ class Home extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Gap(40)
+                const Gap(30)
               ],
             )
           ),
@@ -82,18 +188,45 @@ class Home extends StatelessWidget {
                 ],
               )
           ),
-          const Gap(15),
-          SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.only(left: 20),
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: carList.map<Widget>((hotel) => HotelView(car: hotel)).toList()
-              )
-              
-          ),
-        ],
-      ),
-    );
+            GridView.builder(
+
+                shrinkWrap: true,
+
+                physics: const ClampingScrollPhysics(),
+
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+
+                    crossAxisCount: 2,
+
+                    childAspectRatio: 0.85,
+
+                    crossAxisSpacing: 5,
+
+                   
+
+                ),
+
+                itemCount: cars.length,
+
+                itemBuilder: (context, index) {
+
+                  return MainScreenPart(
+
+                      model:cars[index]
+
+                  );
+
+                }, 
+        
+
+      
+
+              ),
+          ],
+          
+        )
+        
+      ],
+    ));
   }
 }
