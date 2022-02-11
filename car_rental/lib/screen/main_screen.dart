@@ -154,14 +154,14 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFFF4F6FD),
+                    color: Colors.grey,
                   ),
                   child: Row(
                     children: [
-                      const Icon(FluentSystemIcons.ic_fluent_search_regular, color: Color(0xFFBFC2D5)),
+                      const Icon(FluentSystemIcons.ic_fluent_search_regular, color: Colors.black),
                       const Gap(5),
                       InkWell(
-                        child: Text('Search', style: TextStyle(color: Colors.grey.shade500, fontSize: 15, fontWeight: FontWeight.w500),
+                        child: const Text('Search', style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                          onTap: () {
                          
@@ -217,10 +217,6 @@ class _HomeState extends State<Home> {
                   );
 
                 }, 
-        
-
-      
-
               ),
           ],
           

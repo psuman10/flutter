@@ -78,7 +78,6 @@ class HttpConnectCar {
     final response = await http.get(Uri.parse(baseurl + "getallcars/"));
     if (response.statusCode == 200) {
       var a = ResponseGetCars.fromJson(jsonDecode(response.body));
-      print(a);
       return a.cars;
     } else {
       throw Exception('Failed to load students');

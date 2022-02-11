@@ -1,7 +1,6 @@
 import 'package:car_rental/model/car_model.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:unicons/unicons.dart';
 
 class MainScreenPart extends StatelessWidget {
   final Cars? model;
@@ -14,29 +13,38 @@ class MainScreenPart extends StatelessWidget {
         const Gap(20),
         Container(
           decoration: const BoxDecoration(
-            color: Colors.blueGrey,
+            color: Colors.red,
             borderRadius: BorderRadius.all(
-              Radius.circular(10),
+              Radius.circular(30),
             ),
           ),
           child: Card(
-            color: Colors.grey,
-            
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(30),
+              ),
+            ),            
+            color: Colors.white,
             child: InkWell(
               onTap: () {
                 Navigator.pushNamed(context, '/car_details', arguments: model);
               },
-              child: Column(  
+              child: Column(
                 children: [
                   Image.network(
                     "${model?.image}",
-                    height: 170,
-                    width: 175,
+                    height: 171,
+                    width: 180,
+                  ),
+                  Text(
+                    "${model?.name}",
+                    textAlign: TextAlign.start,
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                     
-                  ),
-                  Text("${model?.name}", style: const TextStyle(fontSize: 25,fontWeight: FontWeight.bold, color: Colors.black,
-                  ),
-                  textAlign: TextAlign.left,
                   ),
                   // Text(
                   //     "Car price: ${model?.rentPerHour}"),

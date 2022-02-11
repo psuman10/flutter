@@ -4,13 +4,12 @@ import 'package:car_rental/profile/screen.dart';
 import 'package:car_rental/screen/addcar.dart';
 import 'package:car_rental/screen/car_details.dart';
 import 'package:car_rental/screen/login.dart';
+import 'package:car_rental/screen/payment.dart';
 import 'package:car_rental/screen/register.dart';
 import 'package:car_rental/screen/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// import 'carpage/pages/home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,6 +45,7 @@ class MyApp extends StatelessWidget {
             '/userprofile': (context) => const UserProfile(),
             '/car_details': (context) => const DetailsPage(),
             '/addcar': (context) => const AddCar(),
+            '/payment': (context) => const Payment(),
           },
         );
       },

@@ -2,6 +2,7 @@
 // ignore_for_file: file_names
 import 'dart:io';
 import 'package:car_rental/navbar/bottom_nav.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 class UserProfile extends StatefulWidget {
@@ -34,7 +35,7 @@ class _UserProfileState extends State<UserProfile> {
          centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.skip_next_sharp),
+            icon: const Icon(CupertinoIcons.multiply),
             onPressed: () {
               Navigator.push(
                 context,
