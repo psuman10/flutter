@@ -189,12 +189,14 @@ class _AddCarScreenState extends State<AddCar> {
                                     description:
                                         const Text('Car added Successfully'))
                                 .show(context);
+                                
                             // Navigator.pushNamed(context, '/nav');
                           } else {
                             MotionToast.error(
                                     description:
                                         const Text('failed to add Car'))
                                 .show(context);
+                                
                           }
                         }
                       },

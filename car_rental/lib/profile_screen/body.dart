@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
             },
           ),
           ProfileMenu(
-            text: "Notifications",
+            text: "Bookings",
             icon: "assets/icons/Bell.svg",
             press: () {},
           ),

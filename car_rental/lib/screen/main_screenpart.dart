@@ -23,10 +23,11 @@ class MainScreenPart extends StatelessWidget {
               borderRadius: BorderRadius.all(
                 Radius.circular(30),
               ),
-            ),            
+            ),
             color: Colors.white,
             child: InkWell(
               onTap: () {
+             
                 Navigator.pushNamed(context, '/car_details', arguments: model);
               },
               child: Column(
@@ -44,7 +45,6 @@ class MainScreenPart extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
-                    
                   ),
                   // Text(
                   //     "Car price: ${model?.rentPerHour}"),

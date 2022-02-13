@@ -7,6 +7,7 @@ import 'package:gap/gap.dart';
 import 'package:unicons/unicons.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -21,7 +22,6 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    // futureCar = HttpConnectCar().getCars();
   }
 
   @override
@@ -113,115 +113,110 @@ class _HomeState extends State<Home> {
   Widget carList(cars) {
     return SingleChildScrollView(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          // crossAxisAlignment: CrossAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Column(
           // mainAxisAlignment: MainAxisAlignment.start,
           children: [
-             Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                const Gap(40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+            Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('Car Rental', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
-                         Gap(4),
-                        Text('Your Choice', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold,),),
+                    const Gap(40),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'Car Rental',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
+                            Gap(4),
+                            Text(
+                              'Your Choice',
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage('assets/images/logo.jpg'),
+                                  fit: BoxFit.cover)),
+                        )
                       ],
                     ),
+                    const Gap(25),
                     Container(
-                      width: 50,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/logo.jpg'),
-                          fit: BoxFit.cover
-                        )
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey,
                       ),
+                      child: Row(
+                        children: [
+                          const Icon(FluentSystemIcons.ic_fluent_search_regular,
+                              color: Colors.black),
+                          const Gap(5),
+                          InkWell(
+                            child: const Text(
+                              'Search',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            onTap: () {},
+                          )
+                        ],
+                      ),
+                    ),
+                    const Gap(30)
+                  ],
+                )),
+            Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Cars',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500)),
+                    InkWell(
+                      child: Text('View all',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w500)),
                     )
                   ],
-                ),
-                const Gap(25),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey,
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(FluentSystemIcons.ic_fluent_search_regular, color: Colors.black),
-                      const Gap(5),
-                      InkWell(
-                        child: const Text('Search', style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                         onTap: () {
-                         
-                         },
-                      ) 
-                    ],
-                  ),
-                ),
-                const Gap(30)
-              ],
-            )
-          ),
-         
-          Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                   Text('Cars', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-                  InkWell(
-                    child: Text('View all',style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                  )
-                ],
-              )
-          ),
+                )),
             GridView.builder(
-
-                shrinkWrap: true,
-
-                physics: const ClampingScrollPhysics(),
-
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-
-                    crossAxisCount: 2,
-
-                    childAspectRatio: 0.85,
-
-                    crossAxisSpacing: 5,
-
-                   
-
-                ),
-
-                itemCount: cars.length,
-
-                itemBuilder: (context, index) {
-
-                  return MainScreenPart(
-
-                      model:cars[index]
-
-                  );
-
-                }, 
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.85,
+                crossAxisSpacing: 5,
               ),
+              itemCount: cars.length,
+              itemBuilder: (context, index) {
+                return MainScreenPart(model: cars[index]);
+              },
+            ),
           ],
-          
         )
-        
       ],
     ));
   }

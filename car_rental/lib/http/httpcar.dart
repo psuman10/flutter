@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+import 'package:car_rental/response/getcardetails_resp.dart';
 import 'package:car_rental/response/getcars_resp.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -80,7 +81,18 @@ class HttpConnectCar {
       var a = ResponseGetCars.fromJson(jsonDecode(response.body));
       return a.cars;
     } else {
-      throw Exception('Failed to load students');
+      throw Exception('Failed to load Cars');
     }
   }
+  Future<List<Cars>> getCarById(String carid) async {
+    final response = await http.get(Uri.parse(baseurl + "/getcar/:carid/"));
+    if (response.statusCode == 200) {
+      var a = ResponseGetCarsById.fromJson(jsonDecode(response.body));
+      return a.car;
+    } else {
+      throw Exception('Failed to load Cars');
+    }
+  }
+
+  registerCar() {}
 }

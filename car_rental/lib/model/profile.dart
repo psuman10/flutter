@@ -1,23 +1,40 @@
-import 'package:json_annotation/json_annotation.dart';
-
-part 'profile.g.dart';
-
-@JsonSerializable()
-class Profile {
-  @JsonKey(name: '_id')
-  String? id;
-  String? fullname;
+class userprofile {
+  String? sId;
+  String? username;
   String? email;
-  String? gender;
+  String? gender;  
+  String? password;
+  int? iV;
   String? address;
 
-  Profile(
-      {this.id,
-      this.fullname,
+  userprofile(
+      {this.sId,
+      this.username,
       this.email,
       this.gender,
-      this.address,});
+      this.password,
+      this.iV,
+      this.address});
 
-  factory Profile.fromJson(Map<String, dynamic> obj) => _$ProfileFromJson(obj);
-  Map<String, dynamic> toJson() => _$ProfileToJson(this);
+  userprofile.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    username = json['username'];
+    email = json['email'];
+    gender = json['gender'];
+    password = json['password'];
+    iV = json['__v'];
+    address = json['address'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['_id'] = this.sId;
+    data['username'] = this.username;
+    data['email'] = this.email;
+    data['gender'] = this.gender;
+    data['password'] = this.password;
+    data['__v'] = this.iV;
+    data['address'] = this.address;
+    return data;
+  }
 }

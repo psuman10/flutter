@@ -4,14 +4,15 @@ import 'package:car_rental/profile/screen.dart';
 import 'package:car_rental/screen/addcar.dart';
 import 'package:car_rental/screen/car_details.dart';
 import 'package:car_rental/screen/login.dart';
-import 'package:car_rental/screen/payment.dart';
 import 'package:car_rental/screen/register.dart';
 import 'package:car_rental/screen/theme.dart';
+import 'package:car_rental/screen/tickets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main()  {
+
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.getInstance().then((prefs) {
     var isDarkTheme = prefs.getBool("darkTheme") ?? false;
@@ -24,7 +25,6 @@ void main() {
       ),
     );
   });
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -45,18 +45,12 @@ class MyApp extends StatelessWidget {
             '/userprofile': (context) => const UserProfile(),
             '/car_details': (context) => const DetailsPage(),
             '/addcar': (context) => const AddCar(),
-            '/payment': (context) => const Payment(),
+            '/userbookings': (context) => const UserBooking(),
+            
+            '/userbook': (context) => const UserBooking(),
           },
         );
       },
     );
   }
 }
-
-
-
-
-
-
-
-
