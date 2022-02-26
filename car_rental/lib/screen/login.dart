@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
 import '/http/httpuser.dart';
@@ -134,12 +135,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           description: const Text('Login Successfull'),
                           toastDuration: const Duration(seconds: 1),
                         ).show(context);
-                        
+                        AwesomeNotifications().createNotification(
+                            content: NotificationContent(
+                          id: 1,
+                          channelKey: 'Car Rental',
+                          title: 'Login Successful',
+                          body: 'Login Successfull by $uname',
+                        ));
                       } else {
                         MotionToast.error(
                                 description: const Text('Login UnSuccessfull'))
                             .show(context);
-                        
+                        AwesomeNotifications().createNotification(
+                            content: NotificationContent(
+                          id: 2,
+                          channelKey: 'Car Rental',
+                          title: 'Login Failed',
+                          body: 'Login Failed by $uname',
+                        ));
                       }
                     },
                     child: const Text('Login'),

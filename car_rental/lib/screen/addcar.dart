@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 import 'dart:io';
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:car_rental/http/httpaddcar.dart';
 import 'package:car_rental/model/addcar_model.dart';
 import 'package:flutter/material.dart';
@@ -189,14 +190,26 @@ class _AddCarScreenState extends State<AddCar> {
                                     description:
                                         const Text('Car added Successfully'))
                                 .show(context);
-                                
+                                AwesomeNotifications().createNotification(
+                            content: NotificationContent(
+                          id: 1,
+                          channelKey: 'Car Rental',
+                          title: 'Car Added Successfully',
+                          body: '$name Added Successfully',
+                        ));
                             // Navigator.pushNamed(context, '/nav');
                           } else {
                             MotionToast.error(
                                     description:
                                         const Text('failed to add Car'))
                                 .show(context);
-                                
+                                AwesomeNotifications().createNotification(
+                            content: NotificationContent(
+                          id: 2,
+                          channelKey: 'Car Rental',
+                          title: 'Failed to Add Car',
+                          body: '$name cannot be added',
+                        ));
                           }
                         }
                       },
