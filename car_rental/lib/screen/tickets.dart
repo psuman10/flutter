@@ -1,118 +1,141 @@
-import 'package:car_rental/model/bookingnewcar_model.dart';
-import 'package:car_rental/utils/layouts.dart';
-import 'package:car_rental/utils/styles.dart';
-import 'package:car_rental/widgets/ticket_view.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
-class UserBooking extends StatefulWidget {
-  final BookingNewCar? model;
+class BookingConfirmation extends StatelessWidget {
+  const BookingConfirmation({Key? key}) : super(key: key);
 
-  const UserBooking({Key? key, this.model}) : super(key: key);
+  AppBar buildAppBar() {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+    );
+  }
 
-  @override
-  State<UserBooking> createState() => _UserBookingState();
-}
+  Widget BookingProduct() {
+    return Card(
+      child: Container(
+        height: 150,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Row(
+                children: [
+                  Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/for.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      )),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                        vertical: 20.0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Fortuner',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red,
+                            ),
+                          ),
+                          Text(
+                            'Total Hours: 72',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'From: 2022/02/27',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'To: 2022/03/02',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'Amount:Rs 36000',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                      child: Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: CircleAvatar(
+                      radius: 25,
+                      backgroundColor: Colors.green,
+                      child: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ))
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 
-class _UserBookingState extends State<UserBooking> {
   @override
   Widget build(BuildContext context) {
-    final size = Layouts.getSize(context);
     return Scaffold(
-      // backgroundColor: Styles.bgColor,
-      body: Stack(
+      appBar: buildAppBar(),
+      // backgroundColor: AppColors.background,
+      body: ListView(
         children: [
-          ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            children: [
-              const Gap(60),
-              const Text('Bookings',
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.w900)),
-              const Gap(20),
-              FittedBox(
-                child: Container(
-                  padding: const EdgeInsets.all(3.5),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: const Color(0xFFF4F6FD)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: size.width * 0.44,
-                        padding: const EdgeInsets.symmetric(vertical: 7),
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.horizontal(
-                                left: Radius.circular(50)),
-                            color: Colors.white),
-                        child: Center(
-                            child: Text(
-                          'Recent',
-                          style: Styles.subtitle1Style.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: Styles.textColor),
-                        )),
-                      ),
-                      const Gap(5),
-                      Container(
-                        width: size.width * 0.44,
-                        padding: const EdgeInsets.symmetric(vertical: 7),
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.horizontal(
-                                right: Radius.circular(50)),
-                            color: Colors.transparent),
-                        child: Center(
-                            child: Text(
-                          'Previous',
-                          style: Styles.subtitle1Style.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: Colors.grey.shade600),
-                        )),
-                      ),
-                    ],
+          Container(
+            margin: EdgeInsets.only(bottom: 10.0),
+            color: Colors.black12,
+            child: SizedBox(
+              child: ListTile(
+                title: Text(
+                  "Confirmed",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    // color: Colors.green,
                   ),
                 ),
+                subtitle: Text("Booking Id: 621a05f1fad02cfc925c65da"),
               ),
-              const Gap(25),
-              const Gap(20),
-              Container(
-                  padding: const EdgeInsets.only(left: 15, right: 0),
-                  child: const TicketView(
-                    isOrange: true,
-                  ))
-            ],
+            ),
           ),
-          Positioned(
-            top: 309,
-            left: 25,
-            child: Container(
-                padding: const EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Styles.textColor, width: 2),
-                    shape: BoxShape.circle),
-                child: CircleAvatar(
-                  maxRadius: 4,
-                  backgroundColor: Styles.textColor,
-                )),
-          ),
-          Positioned(
-            top: 309,
-            right: 25,
-            child: Container(
-                padding: const EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Styles.textColor, width: 2),
-                    shape: BoxShape.circle),
-                child: CircleAvatar(
-                  maxRadius: 4,
-                  backgroundColor: Styles.textColor,
-                )),
-          ),
-          
+          BookingProduct(),
         ],
-        
       ),
-      
     );
   }
 }

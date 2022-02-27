@@ -1,10 +1,10 @@
-
 // ignore_for_file: file_names
 import 'dart:io';
 import 'package:car_rental/navbar/bottom_nav.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);
 
@@ -29,10 +29,11 @@ class _UserProfileState extends State<UserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('User Profile'),
-         centerTitle: true,
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: const Icon(CupertinoIcons.multiply),
@@ -47,7 +48,7 @@ class _UserProfileState extends State<UserProfile> {
         ],
       ),
       body: SizedBox(
-        height: 800,
+        height: size.height * 1,
         child: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
@@ -61,26 +62,25 @@ class _UserProfileState extends State<UserProfile> {
                 child: Column(
                   children: [
                     const Text(
-                        'User Profile',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            height: 2,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
+                      'User Profile',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                          height: 2,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
                     Stack(
                       children: [
                         CircleAvatar(
                           radius: 50,
                           backgroundImage: _image == null
-                              ? const AssetImage('assets/images/Profile Image.png')
+                              ? const AssetImage(
+                                      'assets/images/Profile Image.png')
                                   as ImageProvider
                               : FileImage(_image!),
                           child: InkWell(
                             onTap: () {},
-                              
-                            
                           ),
                         ),
                       ],
@@ -90,24 +90,22 @@ class _UserProfileState extends State<UserProfile> {
                       onSaved: (value) {
                         fname = value!;
                       },
-                      
                       decoration: InputDecoration(
-                         enabledBorder: OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.grey, width: 4.0),
+                        ),
+                        labelStyle: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                        focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: const BorderSide(
-                                color: Colors.grey, width: 4.0),
-                          ),
-                          labelStyle: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                  color: Colors.red, width: 6.0)),
-                       fillColor: Colors.white,
+                                color: Colors.red, width: 6.0)),
+                        fillColor: Colors.white,
                         labelText: 'Username:',
-                        
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -115,23 +113,22 @@ class _UserProfileState extends State<UserProfile> {
                       onSaved: (newValue) {
                         email = newValue!;
                       },
-                      decoration:  InputDecoration(
-                         enabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.grey, width: 4.0),
+                        ),
+                        labelStyle: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                        focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: const BorderSide(
-                                color: Colors.grey, width: 4.0),
-                          ),
-                          labelStyle: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                  color: Colors.red, width: 6.0)),
-                       fillColor: Colors.white,
+                                color: Colors.red, width: 6.0)),
+                        fillColor: Colors.white,
                         labelText: 'Email:',
-                     
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -139,23 +136,22 @@ class _UserProfileState extends State<UserProfile> {
                       onSaved: (newValue) {
                         gender = newValue!;
                       },
-                      decoration:  InputDecoration(
-                         enabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.grey, width: 4.0),
+                        ),
+                        labelStyle: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                        focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: const BorderSide(
-                                color: Colors.grey, width: 4.0),
-                          ),
-                          labelStyle: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                  color: Colors.red, width: 6.0)),
-                       fillColor: Colors.white,
+                                color: Colors.red, width: 6.0)),
+                        fillColor: Colors.white,
                         labelText: 'Gender:',
-                      
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -163,35 +159,31 @@ class _UserProfileState extends State<UserProfile> {
                       onSaved: (newValue) {
                         add = newValue!;
                       },
-                      decoration:  InputDecoration(
-                         enabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.grey, width: 4.0),
+                        ),
+                        labelStyle: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                        focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: const BorderSide(
-                                color: Colors.grey, width: 4.0),
-                          ),
-                          labelStyle: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                  color: Colors.red, width: 6.0)),
-                       fillColor: Colors.white,
+                                color: Colors.red, width: 6.0)),
+                        fillColor: Colors.white,
                         labelText: 'Address:',
-                     
                       ),
                     ),
-                    
                     const SizedBox(height: 20.0),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50),
                       ),
                       onPressed: () {},
-                      
                       child: const Text('Update Profile'),
-                      
                     ),
                     const SizedBox(height: 10),
                   ],
@@ -201,5 +193,4 @@ class _UserProfileState extends State<UserProfile> {
       ),
     );
   }
-
 }

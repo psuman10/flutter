@@ -10,7 +10,6 @@ class ResponseGetBookings {
   final List<BookingNewCar> bookings;
 
   ResponseGetBookings({
-    
     required this.bookings,
   });
 

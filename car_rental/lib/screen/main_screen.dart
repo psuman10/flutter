@@ -1,12 +1,15 @@
 import 'package:car_rental/http/httpcar.dart';
 import 'package:car_rental/model/car_model.dart';
 import 'package:car_rental/screen/main_screenpart.dart';
+import 'package:car_rental/screen/theme.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
-
+import 'package:shake/shake.dart';
+import 'package:proximity_plugin/proximity_plugin.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,13 +19,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // late Future<List<Cars>> futureCar;
   bool isApiCallProcess = false;
   @override
   void initState() {
     super.initState();
-
+    
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {

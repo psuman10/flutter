@@ -27,8 +27,7 @@ class MainScreenPart extends StatelessWidget {
             color: Colors.white,
             child: InkWell(
               onTap: () {
-             
-                Navigator.pushNamed(context, '/car_details', arguments: model);
+                Navigator.pushNamed(context, '/cardetails', arguments: model);
               },
               child: Column(
                 children: [

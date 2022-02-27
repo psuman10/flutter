@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '/http/httpuser.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,12 +14,24 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final loginform = GlobalKey<FormState>();
 
+@override void 
+  initState() {
+    super.initState();
+    getCred();
+  }
+
   String uname = '';
   String pass = '';
 
   Future<bool> loginPost(String uname, String pass) {
     var res = HttpConnectUser().loginPosts(uname, pass);
     return res;
+  }
+  String userid = "";
+
+  void getCred() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    userid = prefs.getString('userid') ?? "";
   }
 
   @override
@@ -130,7 +143,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       loginform.currentState!.save();
                       var res = await loginPost(uname, pass);
                       if (res) {
-                        Navigator.pushNamed(context, '/userprofile');
+                        
+
+                        Navigator.pushNamed(context, '/nav');
                         MotionToast.success(
                           description: const Text('Login Successfull'),
                           toastDuration: const Duration(seconds: 1),

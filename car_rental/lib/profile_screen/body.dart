@@ -49,8 +49,8 @@ class Body extends StatelessWidget {
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
             press: () async {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              prefs.remove('username');
+              final SharedPreferences sharedpreferences = await SharedPreferences.getInstance();
+              sharedpreferences.remove('userid');
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(

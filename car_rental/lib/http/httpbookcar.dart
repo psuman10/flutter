@@ -32,6 +32,7 @@ class HttpConnectBooking {
     final response = await http.get(Uri.parse(baseurl + "getallbookings/"));
     if (response.statusCode == 200) {
       var a = ResponseGetBookings.fromJson(jsonDecode(response.body));
+
       return a.bookings;
     } else {
       throw Exception('Failed to load Bookings');

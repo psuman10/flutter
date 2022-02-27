@@ -28,13 +28,15 @@ class _AddCarScreenState extends State<AddCar> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Product'),
         centerTitle: true,
       ),
       body: SizedBox(
-        height: 800,
+        height: size.height * 1,
         child: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
@@ -190,26 +192,26 @@ class _AddCarScreenState extends State<AddCar> {
                                     description:
                                         const Text('Car added Successfully'))
                                 .show(context);
-                                AwesomeNotifications().createNotification(
-                            content: NotificationContent(
-                          id: 1,
-                          channelKey: 'Car Rental',
-                          title: 'Car Added Successfully',
-                          body: '$name Added Successfully',
-                        ));
+                            AwesomeNotifications().createNotification(
+                                content: NotificationContent(
+                              id: 1,
+                              channelKey: 'Car Rental',
+                              title: 'Car Added Successfully',
+                              body: '$name Added Successfully',
+                            ));
                             // Navigator.pushNamed(context, '/nav');
                           } else {
                             MotionToast.error(
                                     description:
                                         const Text('failed to add Car'))
                                 .show(context);
-                                AwesomeNotifications().createNotification(
-                            content: NotificationContent(
-                          id: 2,
-                          channelKey: 'Car Rental',
-                          title: 'Failed to Add Car',
-                          body: '$name cannot be added',
-                        ));
+                            AwesomeNotifications().createNotification(
+                                content: NotificationContent(
+                              id: 2,
+                              channelKey: 'Car Rental',
+                              title: 'Failed to Add Car',
+                              body: '$name cannot be added',
+                            ));
                           }
                         }
                       },

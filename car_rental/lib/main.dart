@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AwesomeNotifications().initialize(null, // icon for your app notification
@@ -41,27 +42,31 @@ void main() async {
   });
 }
 
+String userid = "";
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
+
+
     return Consumer<ThemeProvider>(
       builder: (context, value, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Car Rental',
           theme: value.getTheme(),
+          initialRoute: '/',
           routes: {
             '/': (context) => const LoginScreen(),
             '/register': (context) => const RegisterScreen(),
             '/nav': (context) => const NavBottompract(),
             '/userprofile': (context) => const UserProfile(),
-            '/car_details': (context) => const DetailsPage(),
+            '/cardetails': (context) => const DetailsPage(),
             '/addcar': (context) => const AddCar(),
-            '/userbookings': (context) => const UserBooking(),
+            '/successful': (context) => const BookingConfirmation(),
             '/card': (context) => const CreditCard(),
-            '/userbook': (context) => const UserBooking(),
           },
         );
       },

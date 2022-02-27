@@ -1,30 +1,29 @@
 import 'package:car_rental/profile_screen/body.dart';
 import 'package:car_rental/screen/main_screen.dart';
 import 'package:car_rental/screen/search.dart';
-import 'package:car_rental/screen/tick.dart';
 import 'package:car_rental/screen/tickets.dart';
-import 'package:car_rental/screen/ticketspart.dart';
 import 'package:flutter/material.dart';
+
 class NavBottompract extends StatefulWidget {
   const NavBottompract({Key? key}) : super(key: key);
   @override
   _NavBottompractState createState() => _NavBottompractState();
 }
+
 class _NavBottompractState extends State<NavBottompract> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOption = [
     Home(),
     Search(),
-    // UserBooking(),
-    Homes(),
+    BookingConfirmation(),
     Body(),
-    
   ];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +43,6 @@ class _NavBottompractState extends State<NavBottompract> {
               Icons.search,
             ),
             label: 'Search',
-            
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -52,10 +50,10 @@ class _NavBottompractState extends State<NavBottompract> {
             ),
             label: 'Bookings',
           ),
-          BottomNavigationBarItem( 
+          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
-          ), 
+          ),
         ],
         currentIndex: _selectedIndex,
         // selectedItemColor: Colors.amber[900],

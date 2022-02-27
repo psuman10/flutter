@@ -198,7 +198,7 @@ class _CreditCardState extends State<CreditCard> {
                             "Pay",
                           ),
                           onPressed: () async {
-                            Navigator.pushNamed(context, '/userbook');
+                            Navigator.pushNamed(context, '/successful');
                             MotionToast.success(
                               description: const Text('Booking Successful'),
                               toastDuration: const Duration(seconds: 1),
