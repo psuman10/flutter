@@ -1,4 +1,3 @@
-import 'package:car_rental/sqlmodel/car.dart';
 import 'package:floor/floor.dart';
 
 @entity
@@ -10,7 +9,6 @@ class LoadCar {
   int? capacity;
   String? fuelType;
   int? rentPerHour;
-  List<BookedTimeSlots>? bookedTimeSlots;
   String? createdAt;
   String? updatedAt;
   int? iV;
@@ -22,7 +20,6 @@ class LoadCar {
       this.capacity,
       this.fuelType,
       this.rentPerHour,
-      this.bookedTimeSlots,
       this.createdAt,
       this.updatedAt,
       this.iV});

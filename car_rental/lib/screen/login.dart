@@ -18,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   initState() {
     super.initState();
     getCred();
+    
   }
 
   String uname = '';

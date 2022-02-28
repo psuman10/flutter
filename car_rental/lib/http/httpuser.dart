@@ -8,6 +8,8 @@ class HttpConnectUser {
   // String baseurl = 'http://127.0.0.1:/api/users/';
   String baseurl = 'http://192.168.101.3:4000/api/users/';
   static String token = '';
+  static String userid = '';
+
 
   //sending data to the server--- creating user
   Future<bool> registerPost(User user) async {
@@ -34,7 +36,6 @@ class HttpConnectUser {
       'username': username,
       'password': password
     };
-
     try {
       final response = await post(
           Uri.parse(
@@ -44,10 +45,8 @@ class HttpConnectUser {
 
       //json serializing inline
       final jsonData = jsonDecode(response.body) as Map;
-      var userid = jsonData['user']['_id'];
-      final SharedPreferences sharedpreferences =
-          await SharedPreferences.getInstance();
-      sharedpreferences.setString('userid', userid);
+       userid = jsonData['user']['_id'];
+     
       if (jsonData['success']) {
         return true;
       }

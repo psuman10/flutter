@@ -5,7 +5,6 @@ class DisplayCar {
   int? capacity;
   String? fuelType;
   int? rentPerHour;
-  List<BookedTimeSlots>? bookedTimeSlots;
   String? createdAt;
   String? updatedAt;
   int? iV;
@@ -17,7 +16,6 @@ class DisplayCar {
       this.capacity,
       this.fuelType,
       this.rentPerHour,
-      this.bookedTimeSlots,
       this.createdAt,
       this.updatedAt,
       this.iV});
@@ -29,12 +27,6 @@ class DisplayCar {
     capacity = json['capacity'];
     fuelType = json['fuelType'];
     rentPerHour = json['rentPerHour'];
-    if (json['bookedTimeSlots'] != null) {
-      bookedTimeSlots = <BookedTimeSlots>[];
-      json['bookedTimeSlots'].forEach((v) {
-        bookedTimeSlots!.add(BookedTimeSlots.fromJson(v));
-      });
-    }
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
@@ -48,10 +40,6 @@ class DisplayCar {
     data['capacity'] = capacity;
     data['fuelType'] = fuelType;
     data['rentPerHour'] = rentPerHour;
-    if (bookedTimeSlots != null) {
-      data['bookedTimeSlots'] =
-          bookedTimeSlots!.map((v) => v.toJson()).toList();
-    }
     data['createdAt'] = createdAt;
     data['updatedAt'] = updatedAt;
     data['__v'] = iV;

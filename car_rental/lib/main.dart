@@ -1,4 +1,7 @@
 // import 'package:car/carpage/widgets/bottom_nav.dart';
+import 'package:car_rental/dao/cardao.dart';
+import 'package:car_rental/database/database.dart';
+import 'package:car_rental/http/httpuser.dart';
 import 'package:car_rental/navbar/bottom_nav.dart';
 import 'package:car_rental/profile/screen.dart';
 import 'package:car_rental/screen/addcar.dart';
@@ -14,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
 void main() async {
+ 
   WidgetsFlutterBinding.ensureInitialized();
   AwesomeNotifications().initialize(null, // icon for your app notification
       [
@@ -29,11 +33,14 @@ void main() async {
       ]);
 
   WidgetsFlutterBinding.ensureInitialized();
+  final database =
+      await $FloorAppDatabase.databaseBuilder('car_database.db').build();
+  final dao = database.carDAO;
   SharedPreferences.getInstance().then((prefs) {
     var isDarkTheme = prefs.getBool("darkTheme") ?? false;
     return runApp(
       ChangeNotifierProvider<ThemeProvider>(
-        child: const MyApp(),
+        child: MyApp(dao: dao),
         create: (BuildContext context) {
           return ThemeProvider(isDarkTheme);
         },
@@ -42,10 +49,12 @@ void main() async {
   });
 }
 
-String userid = "";
-
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({
+    Key? key,
+    required this.dao,
+  }) : super(key: key);
+  final CarDAO dao;
 
   @override
   Widget build(BuildContext context) {

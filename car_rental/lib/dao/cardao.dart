@@ -9,7 +9,7 @@ abstract class CarDAO {
   @Query('SELECT * FROM CAR WHERE sid=:sid AND id=:id')
   Stream<List<LoadCar>> getItemInCarBySid(String sid, String id);
 
-  @Query('DELETE FROM CAR where uid=:uid')
+  @Query('DELETE FROM CAR where sid=:sid')
   Stream<List<LoadCar>> clearCarBySid(String sid);
 
   @insert

@@ -7,6 +7,7 @@ import 'package:gap/gap.dart';
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     final size = Layouts.getSize(context);

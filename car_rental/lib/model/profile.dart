@@ -4,7 +4,6 @@ class userprofile {
   String? email;
   String? gender;  
   String? password;
-  int? iV;
   String? address;
 
   userprofile(
@@ -13,7 +12,6 @@ class userprofile {
       this.email,
       this.gender,
       this.password,
-      this.iV,
       this.address});
 
   userprofile.fromJson(Map<String, dynamic> json) {
@@ -22,7 +20,6 @@ class userprofile {
     email = json['email'];
     gender = json['gender'];
     password = json['password'];
-    iV = json['__v'];
     address = json['address'];
   }
 
@@ -33,7 +30,6 @@ class userprofile {
     data['email'] = this.email;
     data['gender'] = this.gender;
     data['password'] = this.password;
-    data['__v'] = this.iV;
     data['address'] = this.address;
     return data;
   }

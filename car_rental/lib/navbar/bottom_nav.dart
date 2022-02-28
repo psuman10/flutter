@@ -13,7 +13,8 @@ class NavBottompract extends StatefulWidget {
 class _NavBottompractState extends State<NavBottompract> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOption = [
-    Home(),
+    // Home(),
+    Search(),
     Search(),
     BookingConfirmation(),
     Body(),

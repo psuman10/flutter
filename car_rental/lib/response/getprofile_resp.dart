@@ -1,20 +1,21 @@
-// import 'package:json_annotation/json_annotation.dart';
-// import '/model/profile.dart';
+import 'package:json_annotation/json_annotation.dart';
+import '/model/profile.dart';
 
-// part 'getprofile_resp.g.dart';
+part 'getprofile_resp.g.dart';
 
-// @JsonSerializable(explicitToJson: true)
-// class ResponseGetProfile {
-//   final bool success;
+@JsonSerializable(explicitToJson: true)
+class ResponseGetProfile {
+  final bool success;
+  
+  final List<userprofile> data;
 
-//   final List<userprofile> data;
+  ResponseGetProfile({
+    required this.success,
+    required this.data,
+  });
 
-//   ResponseGetProfile({
-//     required this.data,
-//   });
+  factory ResponseGetProfile.fromJson(Map<String, dynamic> obj) =>
+      _$ResponseGetProfileFromJson(obj);
 
-//   factory ResponseGetProfile.fromJson(Map<String, dynamic> obj) =>
-//       _$ResponseGetProfileFromJson(obj);
-
-//   Map<String, dynamic> toJson() => _$ResponseGetProfileToJson(this);
-// }
+  Map<String, dynamic> toJson() => _$ResponseGetProfileToJson(this);
+}
