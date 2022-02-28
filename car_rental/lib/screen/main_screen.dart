@@ -9,7 +9,8 @@ import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:shake/shake.dart';
-import 'package:proximity_plugin/proximity_plugin.dart';
+import 'dart:async';
+import 'package:all_sensors/all_sensors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,14 +21,31 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool isApiCallProcess = false;
+  bool _proximityValues = false;
+  List<StreamSubscription<dynamic>> _streamSubscriptions =
+      <StreamSubscription<dynamic>>[];
+
+  @override
+  void dispose() {
+    super.dispose();
+    for (StreamSubscription<dynamic> subscription in _streamSubscriptions) {
+      subscription.cancel();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    
+    _streamSubscriptions.add(proximityEvents.listen((ProximityEvent event) {
+      setState(() {
+        _proximityValues = event.getValue();
+        print(_proximityValues);
+      });
+    }));
+    ShakeDetector detector = ShakeDetector.autoStart(onPhoneShake: () {
+      Provider.of<ThemeProvider>(context, listen: false).swapTheme();
+    });
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {

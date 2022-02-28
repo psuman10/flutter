@@ -46,11 +46,9 @@ String userid = "";
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
-
-
     return Consumer<ThemeProvider>(
       builder: (context, value, child) {
         return MaterialApp(
