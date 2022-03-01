@@ -128,7 +128,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     validator: MultiValidator([
                       RequiredValidator(errorText: 'Email is required'),
-                      EmailValidator(errorText: 'Enter a valid Email ID')
+                      EmailValidator(errorText: 'Enter a valid Email ID'),
+                      
                     ]),
                   ),
                   const SizedBox(height: 20),

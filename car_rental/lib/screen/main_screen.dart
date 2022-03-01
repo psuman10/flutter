@@ -7,6 +7,7 @@ import 'package:car_rental/screen/theme.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:motion_toast/motion_toast.dart';
 import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
@@ -42,7 +43,6 @@ class _HomeState extends State<Home> {
       _proximityValues = event.getValue();
       if (_proximityValues == true) {
         Provider.of<ThemeProvider>(context, listen: false).swapTheme();
-        // exit(0);
       }
     }));
 
