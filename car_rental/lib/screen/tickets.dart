@@ -64,14 +64,14 @@ class BookingConfirmation extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'From: 2022/02/27',
+                            'From: 2022/03/01',
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            'To: 2022/03/02',
+                            'To: 2022/03/04',
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,

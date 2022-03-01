@@ -4,9 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '/model/user.dart';
 
 class HttpConnectUser {
-  // String baseurl = 'http://10.0.2.2:4000/api/users/';
+  String baseurl = 'http://10.0.2.2:4000/api/users/';
   // String baseurl = 'http://127.0.0.1:/api/users/';
-  String baseurl = 'http://192.168.101.3:4000/api/users/';
+  // String baseurl = 'http://192.168.101.3:4000/api/users/';
   static String token = '';
   static String userid = '';
 

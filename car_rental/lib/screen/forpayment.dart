@@ -199,10 +199,10 @@ class _CreditCardState extends State<CreditCard> {
                           ),
                           onPressed: () async {
                             Navigator.pushNamed(context, '/successful');
-                            MotionToast.success(
-                              description: const Text('Booking Successful'),
-                              toastDuration: const Duration(seconds: 1),
-                            ).show(context);
+                            // MotionToast.success(
+                            //   description: const Text('Booking Successful'),
+                            //   toastDuration: const Duration(seconds: 1),
+                            // ).show(context);
                             AwesomeNotifications().createNotification(
                                 content: NotificationContent(
                               id: 1,

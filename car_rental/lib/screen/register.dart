@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:motion_toast/motion_toast.dart';
@@ -32,13 +33,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
         centerTitle: true,
       ),
       body: Container(
+        
         height: size.height * 1,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/carr.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: Colors.black,
+
+        // decoration: const BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage("assets/images/carr.jpg"),
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(25),
@@ -128,8 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     validator: MultiValidator([
                       RequiredValidator(errorText: 'Email is required'),
-                      EmailValidator(errorText: 'Enter a valid Email ID'),
-                      
+                      EmailValidator(errorText: 'Enter a valid Email ID')
                     ]),
                   ),
                   const SizedBox(height: 20),
@@ -258,3 +261,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
