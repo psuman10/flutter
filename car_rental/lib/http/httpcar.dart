@@ -11,8 +11,8 @@ import '/http/httpuser.dart';
 import '../model/car_model.dart';
 
 class HttpConnectCar {
-  // final baseurl = 'http://10.0.2.2:4000/api/cars/';
-  String baseurl = 'http://192.168.101.3:4000/api/cars/';
+  final baseurl = 'http://10.0.2.2:4000/api/cars/';
+  // String baseurl = 'http://192.168.101.3:4000/api/cars/';
 
   Future<String> uploadImage(String filepath, String id) async {
     try {
