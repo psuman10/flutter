@@ -1,0 +1,118 @@
+{
+    "success": true,
+    "cars": [
+        {
+            "_id": "61f35a9a07a190ec57f9031c",
+            "name": "Fortuner",
+            "image": "https://imgd.aeplcdn.com/0x0/n/cw/ec/44709/fortuner-exterior-right-front-three-quarter-19.jpeg",
+            "capacity": 8,
+            "fuelType": "diesel",
+            "rentPerHour": 500,
+            "bookedTimeSlots": [
+                {
+                    "from": "Feb 10 2022 18:39",
+                    "to": "Feb 12 2022 18:39",
+                    "_id": "62050bb1af429c0024b16d89"
+                }
+            ],
+            "createdAt": "2022-01-28T02:53:14.463Z",
+            "updatedAt": "2022-02-10T12:57:21.556Z",
+            "__v": 1
+        },
+        {
+            "_id": "62010094e7cc50b83e0d7810",
+            "name": "Creta",
+            "image": "http://www.autoncell.com/image/product-1617972644113-24fc1.jpeg",
+            "capacity": 5,
+            "fuelType": "petrol",
+            "rentPerHour": 800,
+            "bookedTimeSlots": [
+                {
+                    "from": "Feb 07 2022 17:28",
+                    "to": "Feb 16 2022 17:28",
+                    "_id": "620105fce7cc50b83e0d7836"
+                },
+                {
+                    "from": "Feb 17 2022 20:43",
+                    "to": "Feb 19 2022 20:43",
+                    "_id": "620133e6461ba1ebaa9ab4a3"
+                }
+            ],
+            "createdAt": "2022-02-07T11:20:52.440Z",
+            "updatedAt": "2022-02-07T14:59:50.747Z",
+            "__v": 2
+        },
+        {
+            "_id": "62014000e45788cc43f5726b",
+            "name": "Nexon",
+            "image": "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=http://cms.haymarketindia.net/model/uploads/modelimages/Tata-Nexon-220120201426.jpg&w=730&h=484&q=75&c=1",
+            "capacity": 5,
+            "fuelType": "petrol",
+            "rentPerHour": 600,
+            "bookedTimeSlots": [],
+            "createdAt": "2022-02-07T15:51:28.823Z",
+            "updatedAt": "2022-02-07T15:52:13.388Z",
+            "__v": 0
+        },
+        {
+            "_id": "6205153daf429c0024b16e0e",
+            "name": "Kia Seltos",
+            "image": "http://www.autoncell.com/image/product-1618724830821-844ec.jpg",
+            "capacity": 5,
+            "fuelType": "petrol",
+            "rentPerHour": 800,
+            "bookedTimeSlots": [],
+            "createdAt": "2022-02-10T13:38:05.354Z",
+            "updatedAt": "2022-02-10T13:38:05.354Z",
+            "__v": 0
+        },
+        {
+            "_id": "620ce0decc85d1746b6a72c7",
+            "name": "lambo",
+            "image": "https://i.ytimg.com/vi/HxVLdhm2B6Y/maxresdefault.jpg",
+            "capacity": 2,
+            "fuelType": "petrol",
+            "rentPerHour": 2000,
+            "bookedTimeSlots": [],
+            "createdAt": "2022-02-16T11:32:46.189Z",
+            "updatedAt": "2022-02-16T11:32:46.189Z",
+            "__v": 0
+        },
+        {
+            "_id": "620dfb7a20546b95964188f5",
+            "name": "ferrari",
+            "image": "https://media.istockphoto.com/photos/laferrari-picture-id501284584?k=20&m=501284584&s=612x612&w=0&h=Mzd6QLH4psLgoSWgx9v7Ixtm-RXze0hRofqSvT4UXUc=",
+            "capacity": 5,
+            "fuelType": "petrol",
+            "rentPerHour": 2000,
+            "bookedTimeSlots": [],
+            "createdAt": "2022-02-17T07:38:34.963Z",
+            "updatedAt": "2022-02-17T07:38:34.963Z",
+            "__v": 0
+        },
+        {
+            "_id": "620e08c320546b9596418dd4",
+            "name": "corolla",
+            "image": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/13483/2022-Toyota-Corolla-front_13483_032_1823x768_040_cropped.png",
+            "capacity": 5,
+            "fuelType": "petrol",
+            "rentPerHour": 750,
+            "bookedTimeSlots": [],
+            "createdAt": "2022-02-17T08:35:15.037Z",
+            "updatedAt": "2022-02-17T08:35:15.037Z",
+            "__v": 0
+        },
+        {
+            "_id": "620e08fa20546b9596418e0a",
+            "name": "cor",
+            "image": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/13483/2022-Toyota-Corolla-front_13483_032_1823x768_040_cropped.png",
+            "capacity": 5,
+            "fuelType": "petrol",
+            "rentPerHour": 500,
+            "bookedTimeSlots": [],
+            "createdAt": "2022-02-17T08:36:10.599Z",
+            "updatedAt": "2022-02-17T08:36:10.599Z",
+            "__v": 0
+        }
+    ]
+}

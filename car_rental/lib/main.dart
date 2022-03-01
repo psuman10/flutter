@@ -17,7 +17,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
 void main() async {
- 
   WidgetsFlutterBinding.ensureInitialized();
   AwesomeNotifications().initialize(null, // icon for your app notification
       [

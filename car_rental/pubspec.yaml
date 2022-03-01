@@ -64,6 +64,7 @@ dependencies:
   floor: any
   badges: any
   flutter_elegant_number_button: any
+  all_sensors2: ^1.0.1
   # all_sensors: ^0.3.1+2
 
 
