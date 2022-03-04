@@ -1,24 +1,17 @@
-import 'package:car_rental/entity/load.dart';
+import 'package:car_rental/sqlmodel/car.dart';
 import 'package:floor/floor.dart';
 
 @dao
 abstract class CarDAO {
-  @Query('SELECT * FROM CAR WHERE sid=:sid')
-  Stream<List<LoadCar>> getAllItemInCarBySid(String sid);
+  @Query('SELECT * FROM Car')
+  Future<List<DisplayCar>> findAllCars();
 
-  @Query('SELECT * FROM CAR WHERE sid=:sid AND id=:id')
-  Stream<List<LoadCar>> getItemInCarBySid(String sid, String id);
+  @Query('SELECT * FROM Car WHERE id = :id')
+  Stream<DisplayCar?> findCarById(int id);
 
-  @Query('DELETE FROM CAR where sid=:sid')
-  Stream<List<LoadCar>> clearCarBySid(String sid);
+  @Query('Delete from Car')
+  Stream<DisplayCar?> deleteAllCars();
 
   @insert
-  Future<void> insertCar(LoadCar DisplayCar);
-
-  @update
-  Future<void> updateCar(LoadCar DisplayCar);
-
-  @delete
-  Future<void> deleteCar(LoadCar DisplayCar);
-
+  Future<void> insertCar(DisplayCar flight);
 }

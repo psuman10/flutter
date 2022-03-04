@@ -240,7 +240,7 @@ class _HomeState extends State<Home> {
               ),
               itemCount: cars.length,
               itemBuilder: (context, index) {
-                return MainScreenPart(model: cars[index]);
+                return MainScreenPart(key: cars[index]);
               },
             ),
           ],

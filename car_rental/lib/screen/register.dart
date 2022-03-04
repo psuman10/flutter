@@ -33,14 +33,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       body: Container(
         height: size.height * 1,
-        color: Colors.black,
-
-        // decoration: const BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage("assets/images/carr.jpg"),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/carr.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(25),

@@ -14,6 +14,7 @@ MERGED from [:awesome_notifications] F:\assignment\assignment\Year3-I\Shyam Sir\
 MERGED from [:sqflite] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:fluttertoast] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:sensors_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\sensors_plus\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:connectivity_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\25f3df754e4d43a563877bdf21983017\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\8601dd65e0c6893d5abc5ccde1e2cab3\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.media:media:1.0.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\5e86ac6112f317c2f69cf5fc4d8a9536\media-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -147,6 +148,8 @@ MERGED from [:fluttertoast] F:\assignment\assignment\Year3-I\Shyam Sir\Final Pro
 MERGED from [:fluttertoast] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:sensors_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\sensors_plus\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:sensors_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\sensors_plus\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\25f3df754e4d43a563877bdf21983017\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\25f3df754e4d43a563877bdf21983017\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\8601dd65e0c6893d5abc5ccde1e2cab3\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -305,6 +308,10 @@ action#android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED
 ADDED from [:awesome_notifications] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\awesome_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:31:17-107
 	android:name
 		ADDED from [:awesome_notifications] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\awesome_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:31:25-104
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:connectivity_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [:connectivity_plus] F:\assignment\assignment\Year3-I\Shyam Sir\Final Project\car_rental\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
 provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
 ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\sp554\.gradle\caches\transforms-2\files-2.1\5b28ea65995a10537a2c988d76489f89\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
 	android:authorities

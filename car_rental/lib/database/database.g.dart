@@ -61,7 +61,7 @@ class _$AppDatabase extends AppDatabase {
     changeListener = listener ?? StreamController<String>.broadcast();
   }
 
-  CarDAO? _carDAOInstance;
+  CarDAO? _carDaoInstance;
 
   Future<sqflite.Database> open(String path, List<Migration> migrations,
       [Callback? callback]) async {
@@ -82,7 +82,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `LoadCar` (`sId` TEXT, `name` TEXT, `image` TEXT, `capacity` INTEGER, `fuelType` TEXT, `rentPerHour` INTEGER, `createdAt` TEXT, `updatedAt` TEXT, `iV` INTEGER, PRIMARY KEY (`sId`))');
+            'CREATE TABLE IF NOT EXISTS `DisplayCar` (`sId` TEXT, `name` TEXT, `image` TEXT, `capacity` INTEGER, `fuelType` TEXT, `rentPerHour` INTEGER, `createdAt` TEXT, `updatedAt` TEXT, `iV` INTEGER, PRIMARY KEY (`sId`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -91,50 +91,18 @@ class _$AppDatabase extends AppDatabase {
   }
 
   @override
-  CarDAO get carDAO {
-    return _carDAOInstance ??= _$CarDAO(database, changeListener);
+  CarDAO get carDao {
+    return _carDaoInstance ??= _$CarDAO(database, changeListener);
   }
 }
 
 class _$CarDAO extends CarDAO {
   _$CarDAO(this.database, this.changeListener)
       : _queryAdapter = QueryAdapter(database, changeListener),
-        _loadCarInsertionAdapter = InsertionAdapter(
+        _displayCarInsertionAdapter = InsertionAdapter(
             database,
-            'LoadCar',
-            (LoadCar item) => <String, Object?>{
-                  'sId': item.sId,
-                  'name': item.name,
-                  'image': item.image,
-                  'capacity': item.capacity,
-                  'fuelType': item.fuelType,
-                  'rentPerHour': item.rentPerHour,
-                  'createdAt': item.createdAt,
-                  'updatedAt': item.updatedAt,
-                  'iV': item.iV
-                },
-            changeListener),
-        _loadCarUpdateAdapter = UpdateAdapter(
-            database,
-            'LoadCar',
-            ['sId'],
-            (LoadCar item) => <String, Object?>{
-                  'sId': item.sId,
-                  'name': item.name,
-                  'image': item.image,
-                  'capacity': item.capacity,
-                  'fuelType': item.fuelType,
-                  'rentPerHour': item.rentPerHour,
-                  'createdAt': item.createdAt,
-                  'updatedAt': item.updatedAt,
-                  'iV': item.iV
-                },
-            changeListener),
-        _loadCarDeletionAdapter = DeletionAdapter(
-            database,
-            'LoadCar',
-            ['sId'],
-            (LoadCar item) => <String, Object?>{
+            'DisplayCar',
+            (DisplayCar item) => <String, Object?>{
                   'sId': item.sId,
                   'name': item.name,
                   'image': item.image,
@@ -153,16 +121,27 @@ class _$CarDAO extends CarDAO {
 
   final QueryAdapter _queryAdapter;
 
-  final InsertionAdapter<LoadCar> _loadCarInsertionAdapter;
-
-  final UpdateAdapter<LoadCar> _loadCarUpdateAdapter;
-
-  final DeletionAdapter<LoadCar> _loadCarDeletionAdapter;
+  final InsertionAdapter<DisplayCar> _displayCarInsertionAdapter;
 
   @override
-  Stream<List<LoadCar>> getAllItemInCarBySid(String sid) {
-    return _queryAdapter.queryListStream('SELECT * FROM CAR WHERE sid=?1',
-        mapper: (Map<String, Object?> row) => LoadCar(
+  Future<List<DisplayCar>> findAllCars() async {
+    return _queryAdapter.queryList('SELECT * FROM Car',
+        mapper: (Map<String, Object?> row) => DisplayCar(
+            sId: row['sId'] as String?,
+            name: row['name'] as String?,
+            image: row['image'] as String?,
+            capacity: row['capacity'] as int?,
+            fuelType: row['fuelType'] as String?,
+            rentPerHour: row['rentPerHour'] as int?,
+            createdAt: row['createdAt'] as String?,
+            updatedAt: row['updatedAt'] as String?,
+            iV: row['iV'] as int?));
+  }
+
+  @override
+  Stream<DisplayCar?> findCarById(int id) {
+    return _queryAdapter.queryStream('SELECT * FROM Car WHERE id = ?1',
+        mapper: (Map<String, Object?> row) => DisplayCar(
             sId: row['sId'] as String?,
             name: row['name'] as String?,
             image: row['image'] as String?,
@@ -172,16 +151,15 @@ class _$CarDAO extends CarDAO {
             createdAt: row['createdAt'] as String?,
             updatedAt: row['updatedAt'] as String?,
             iV: row['iV'] as int?),
-        arguments: [sid],
-        queryableName: 'LoadCar',
+        arguments: [id],
+        queryableName: 'DisplayCar',
         isView: false);
   }
 
   @override
-  Stream<List<LoadCar>> getItemInCarBySid(String sid, String id) {
-    return _queryAdapter.queryListStream(
-        'SELECT * FROM CAR WHERE sid=?1 AND id=?2',
-        mapper: (Map<String, Object?> row) => LoadCar(
+  Stream<DisplayCar?> deleteAllCars() {
+    return _queryAdapter.queryStream('Delete from Car',
+        mapper: (Map<String, Object?> row) => DisplayCar(
             sId: row['sId'] as String?,
             name: row['name'] as String?,
             image: row['image'] as String?,
@@ -191,41 +169,12 @@ class _$CarDAO extends CarDAO {
             createdAt: row['createdAt'] as String?,
             updatedAt: row['updatedAt'] as String?,
             iV: row['iV'] as int?),
-        arguments: [sid, id],
-        queryableName: 'LoadCar',
+        queryableName: 'DisplayCar',
         isView: false);
   }
 
   @override
-  Stream<List<LoadCar>> clearCarBySid(String sid) {
-    return _queryAdapter.queryListStream('DELETE FROM CAR where sid=?1',
-        mapper: (Map<String, Object?> row) => LoadCar(
-            sId: row['sId'] as String?,
-            name: row['name'] as String?,
-            image: row['image'] as String?,
-            capacity: row['capacity'] as int?,
-            fuelType: row['fuelType'] as String?,
-            rentPerHour: row['rentPerHour'] as int?,
-            createdAt: row['createdAt'] as String?,
-            updatedAt: row['updatedAt'] as String?,
-            iV: row['iV'] as int?),
-        arguments: [sid],
-        queryableName: 'LoadCar',
-        isView: false);
-  }
-
-  @override
-  Future<void> insertCar(LoadCar DisplayCar) async {
-    await _loadCarInsertionAdapter.insert(DisplayCar, OnConflictStrategy.abort);
-  }
-
-  @override
-  Future<void> updateCar(LoadCar DisplayCar) async {
-    await _loadCarUpdateAdapter.update(DisplayCar, OnConflictStrategy.abort);
-  }
-
-  @override
-  Future<void> deleteCar(LoadCar DisplayCar) async {
-    await _loadCarDeletionAdapter.delete(DisplayCar);
+  Future<void> insertCar(DisplayCar flight) async {
+    await _displayCarInsertionAdapter.insert(flight, OnConflictStrategy.abort);
   }
 }
